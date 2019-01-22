@@ -23,6 +23,12 @@ public class ListViewWithImage extends AppCompatActivity{
             R.drawable.ballon, R.drawable.zelda, R.drawable.warcraft3, R.drawable.echiquier,
     };
 
+    int[] listviewImage2 = new int[]{
+            R.drawable.thumb, R.drawable.thumb, R.drawable.thumb, R.drawable.thumb,
+            R.drawable.thumb, R.drawable.thumb, R.drawable.thumb, R.drawable.thumb,
+    };
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +41,12 @@ public class ListViewWithImage extends AppCompatActivity{
             HashMap<String, String> hm = new HashMap<String, String>();
             hm.put("listview_title", listviewTitle[i]);
             hm.put("listview_image", Integer.toString(listviewImage[i]));
+            hm.put("listview_thumb", Integer.toString(listviewImage2[i]));
             aList.add(hm);
         }
 
-        String[] from = {"listview_image", "listview_title", "listview_discription"};
-        int[] to = {R.id.listview_image, R.id.listview_item_title};
+        String[] from = {"listview_image", "listview_title", "listview_thumb"};
+        int[] to = {R.id.listview_image, R.id.listview_item_title, R.id.listview_thumb};
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), aList, R.layout.row_layout, from, to);
         ListView androidListView = (ListView) findViewById(R.id.list_view);
